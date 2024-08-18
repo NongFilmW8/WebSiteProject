@@ -1,53 +1,230 @@
-/* styles.css */
-/* Dark mode */
-body.dark-mode .navbar {
-    background-color: #343a40; /* สีพื้นหลังของ navbar ใน Dark Mode */
+/* General Styles */
+/* General Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
 }
 
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #ffffff; /* พื้นหลังของ body ในโหมดสว่าง */
+    color: #000000; /* สีของข้อความในโหมดสว่าง */
+}
+
+.navbar {
+    z-index: 1000;
+    background-color: #3059ac8f !important; /* สีพื้นหลังของ navbar */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: none; /* ปิดการแสดง border */  
+}
+body, .navbar, .navbar-brand, .navbar-nav .nav-link {
+    font-family: 'Sarabun', sans-serif; /* ใช้ฟอนต์ Sarabun หรือฟอนต์ที่คุณเลือก */
+    font-weight: 400; /* ปรับความหนาของฟอนต์ */
+    font-size: 1rem; /* ปรับขนาดฟอนต์ตามที่เหมาะสม */
+}
+
+.navbar {
+    background-color: #ffffff; /* สีพื้นหลัง navbar สีขาว */
+    color: #333333; /* สีข้อความใน navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* เงาเบา ๆ ใต้ navbar */
+    border-bottom: 1px solid #dddddd; /* เส้นขอบด้านล่าง navbar */
+}
+
+.navbar-nav .nav-link {
+    color: #555555 !important; /* สีข้อความของลิงค์ใน navbar */
+    transition: color 0.3s ease; /* เพิ่ม transition ให้กับการเปลี่ยนสี */
+}
+
+/* ปรับสีเมนูที่ active */
+.navbar-nav .nav-link.active {
+    color: #555555 !important; /* สีดำเมื่อไม่ได้ active */
+    font-weight: normal; /* ปรับให้ฟอนต์กลับมาเป็นน้ำหนักปกติ */
+}
+
+/* สีเขียวเมื่อชี้ (hover) */
+.navbar-nav .nav-link:hover {
+    color: #28a745 !important; /* สีเขียวเมื่อชี้ */
+}
+
+.navbar-nav .nav-link.btn {
+    color: #ffffff !important; /* สีของข้อความในปุ่ม */
+    background-color: transparent !important; /* พื้นหลังโปร่งใสในสถานะปกติ */
+    border: 2px solid transparent; /* ไม่มีกรอบในสถานะปกติ */
+    transition: background-color 0.3s ease, border 0.3s ease; /* เพิ่ม transition ให้การเปลี่ยนแปลง */
+    -webkit-transition: background-color 0.3s ease, border 0.3s ease;
+    -moz-transition: background-color 0.3s ease, border 0.3s ease;
+    -ms-transition: background-color 0.3s ease, border 0.3s ease;
+    -o-transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+/* ปุ่มเข้าสู่ระบบ: เพิ่มพื้นหลังสีเขียวและกรอบสีขาวเมื่อชี้ (hover) */
+.navbar-nav .nav-link.btn:hover {
+    color: #ffffff !important; /* ยังคงสีของข้อความในปุ่ม */
+    background-color: #28a745 !important; /* พื้นหลังสีเขียวเมื่อชี้ */
+    border: 2px solid #28a745 !important; /* เพิ่มกรอบสีเขียวเมื่อชี้ */
+}
+
+
+/* ปรับปรุงสีของ Navbar ในโหมดสว่าง */
+.navbar-light {
+    background-color: #3059ac !important; /* เปลี่ยนพื้นหลังของ navbar ในโหมดสว่างให้เข้มขึ้น */
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff !important; /* เปลี่ยนสีข้อความของลิงค์ใน navbar ให้เป็นสีขาว */
+    transition: color 0.3s ease; /* เพิ่ม transition ให้การเปลี่ยนแปลงสี */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #28a745 !important; /* เปลี่ยนสีข้อความเป็นสีเขียวเมื่อชี้ */
+}
+
+.navbar-light .navbar-brand {
+    color: #ffffff !important; /* เปลี่ยนสีของแบรนด์ให้เป็นสีขาว */
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #ffffff !important; /* สีของลิงค์ที่ active ให้เป็นสีขาว */
+}
+
+/* ปรับแต่งปุ่ม "เข้าสู่ระบบ" */
+.navbar-light .navbar-nav .nav-link.btn {
+    color: #ffffff !important; /* สีของข้อความในปุ่ม */
+    transition: background-color 0.3s ease, border 0.3s ease; /* เพิ่ม transition ให้การเปลี่ยนแปลง */
+}
+
+.navbar-light .navbar-nav .nav-link.btn:hover {
+    color: #ffffff !important; /* ยังคงสีของข้อความในปุ่ม */
+    background-color: #218838 !important; /* เปลี่ยนสีพื้นหลังเมื่อชี้ */
+    border: 2px solid #218838 !important; /* เปลี่ยนกรอบเมื่อชี้ */
+}
+/* ทำให้ลิงก์ "หน้าแรก" ไม่เปลี่ยนสีเมื่ออยู่ในสถานะ active */
+.navbar-light .navbar-nav .nav-link.active {
+    color: #ffffff !important; /* สีของลิงค์ที่ active ให้เป็นสีขาว */
+}
+
+/* ทำให้ลิงก์ "หน้าแรก" เปลี่ยนเป็นสีเขียวเมื่อชี้เมาส์ */
+.navbar-light .navbar-nav .nav-link.active:hover {
+    color: #28a745 !important; /* สีเขียวเมื่อชี้เมาส์ */
+}
+
+
+/* ปรับแต่งโลโก้ใน navbar */
+.navbar-brand img {
+    height: 60px; /* ปรับความสูงของโลโก้เพิ่มขึ้น */
+    width: auto; /* ให้ความกว้างปรับอัตโนมัติตามอัตราส่วน */
+    margin-right: 15px; /* เว้นระยะห่างระหว่างโลโก้กับข้อความเพิ่มขึ้น */
+    vertical-align: middle; /* จัดให้โลโก้แนบชิดกับข้อความในแนวกลาง */
+}
+
+.navbar-brand {
+    display: flex; /* ใช้ Flexbox เพื่อจัดเรียงโลโก้และข้อความ */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
+
+.navbar {
+    padding-left: 20px; /* เพิ่ม padding ทางซ้ายเพื่อให้โลโก้ไม่ชิดขอบ */
+}
+
+
+
+/* Navbar toggler display control */
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode {
+    background-color: #343a40; /* พื้นหลังของ body ในโหมดมืด */
+    color: #ffffff !important; /* สีของข้อความในโหมดมืด */
+}
+
+body.dark-mode .navbar {
+    background-color: #495057; /* พื้นหลังของ navbar ในโหมดมืด */
+    border: none; /* ไม่มีเส้นขอบในโหมดมืด */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* เงาของ navbar */
+}
+
+body.dark-mode .navbar .nav-link {
+    color: #ffffff !important; /* บังคับให้ฟอนต์ใน navbar เป็นสีขาว */
+}
+
+body.dark-mode .navbar .nav-link:hover {
+    color: #28a745 !important; /* สีของลิงค์เมื่อวางเมาส์ในโหมดมืด */
+}
+
+body.dark-mode .card {
+    background-color: #6c757d; /* พื้นหลังของการ์ดในโหมดมืด */
+    color: #ffffff !important; /* สีของข้อความในการ์ดในโหมดมืด */
+}
+
+body.dark-mode .navbar .nav-link.btn {
+    color: #ffffff !important; /* สีของข้อความในปุ่ม */
+    background-color: transparent; /* พื้นหลังโปร่งใสในสถานะปกติ */
+    border: 2px solid transparent; /* ไม่มีกรอบในสถานะปกติ */
+}
+
+body.dark-mode .navbar .nav-link.btn:hover {
+    color: #ffffff !important; /* สีของข้อความในปุ่ม */
+    background-color: #28a745 !important; /* พื้นหลังสีเขียวเมื่อชี้ */
+    border: 2px solid #28a745 !important; /* กรอบสีเขียวเมื่อชี้ */
+}
+
+
+body.dark-mode .card {
+    background-color: #6c757d; /* พื้นหลังของการ์ดในโหมดมืด */
+    color: #ffffff; /* สีของข้อความในการ์ดในโหมดมืด */
+}
+/* สำหรับฟอนต์ใน navbar */
+body.dark-mode .navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important; /* บังคับให้ฟอนต์ใน navbar เป็นสีขาว */
+}
+
+/* สำหรับฟอนต์อื่น ๆ ในหน้า */
+body.dark-mode {
+    color: #ffffff !important; /* บังคับให้ฟอนต์ทั่วทั้งหน้าที่อยู่ในโหมดมืดเป็นสีขาว */
+}
+
+/* สำหรับฟอนต์ของปุ่ม */
+body.dark-mode .btn {
+    color: #ffffff !important; /* บังคับให้ฟอนต์ของปุ่มเป็นสีขาวในโหมดมืด */
+}
+
+/* Carousel Control Styles */
+.carousel-control-prev,
+.carousel-control-next {
+    display: block; /* แสดงลูกศรของ carousel */
+}
+
+body.dark-mode .carousel-control-prev-icon,
+body.dark-mode .carousel-control-next-icon {
+    opacity: 0; /* ทำให้ไอคอนลูกศรโปร่งใสในโหมดมืด */
+}
+
+/* ซ่อนลูกศรในโหมดสว่าง */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    opacity: 0; /* ซ่อนไอคอนลูกศร */
+}
+
+/* Dark Mode Button */
 .dark-mode-button {
     background: none;
     border: none;
-    color: inherit; /* ให้สีของปุ่มเหมือนกับสีของ navbar */
+    color: inherit; /* สีของปุ่มจะตรงกับสีของ navbar */
     font-size: 1.5em;
 }
-/* ตัวอย่าง CSS สำหรับ Dark Mode */
-body.dark-mode {
-    background-color: #343a40;
-    color: #ffffff;
-}
-/* CSS สำหรับการเปลี่ยนแปลง Dark Mode */
-body {
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
 
-.navbar, .card {
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-/* CSS สำหรับไอคอนอนิเมชัน */
-.dark-mode-button {
-    transition: transform 0.3s ease;
-}
-
-.dark-mode-button:active {
-    transform: scale(1.2);
-}
-
-#moonIcon {
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-/* ์Nav bar */
-.navbar.dark-mode {
-    background-color: #495057;
-    border-bottom: 1px solid #dee2e6;
-}
-
-.card.dark-mode {
-    background-color: #6c757d;
-    color: #ffffff;
-}
-
+/* Card Styles */
 
 .batch-card {
     margin-bottom: 30px;
@@ -76,7 +253,7 @@ body {
     bottom: 0;
     width: 100%;
     color: white;
-    background: rgba(0, 0, 0, 0.0);
+    background: rgba(0, 0, 0, 0.0); /* พื้นหลังของ card-body */
     text-align: center;
     padding: 20px;
     transition: background 0.3s ease, transform 0.3s ease;
@@ -84,7 +261,7 @@ body {
 }
 
 .card:hover .card-body {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7); /* พื้นหลังของ card-body เมื่อ hover */
     transform: translateY(0);
 }
 
@@ -93,15 +270,22 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
 }
-.navbar {
-    background-color: #3059ac8f !important; /* บังคับใช้สีนี้ */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* เพิ่มเงา */
+/* footer */
+.footer {
+    background-color: #f8f9fa; /* สีพื้นหลังของ footer */
+    padding: 20px 0; /* ระยะห่างด้านบนและล่าง */
+    text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+    border-top: 1px solid #dee2e6; /* เส้นขอบด้านบน */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
 }
 
-.navbar-light .navbar-nav .nav-link {
-    color: rgba(0,0,0,.7); /* ปรับสีของลิงก์ให้เข้มขึ้น */
+.footer .container {
+    max-width: 1200px; /* ความกว้างสูงสุดของคอนเทนเนอร์ */
 }
 
-.navbar-light .navbar-nav .nav-link:hover {
-    color: rgba(0,0,0,.9); /* ชี้ละเปลี่ยนสี Holdwer */
+.footer-info {
+    margin-bottom: 10px;
 }
